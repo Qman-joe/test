@@ -50,7 +50,10 @@
   padding: 10px;
   margin: 15px 0;
   .cross-validation-error input { border-left: 5px solid $red; }
-  label{ color: $white; }
+  label{ 
+    font-family: HelveticaNeueLTStd-Roman, Arial, Helvetica, sans-serif;
+    color: $white; 
+    }
   .alert-danger{ 
     background-color: $red;
     border-color: $red;

@@ -1,7 +1,8 @@
 /* Global Styles */
-
+ @import url('https://geometrydocuments.s3.amazonaws.com/fonts/HelveticaNeueMedium/HelveticaNeueMedium.css');
+@import url('https://geometrydocuments.s3.amazonaws.com/fonts/HelveticaNeueLTStd-Roman/HelveticaNeueLTStd-Roman.css');
 * {
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: HelveticaNeueLTStd-Roman, Arial, Helvetica, sans-serif;
   color: #616161;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
