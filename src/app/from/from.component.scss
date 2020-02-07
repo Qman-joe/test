@@ -1,5 +1,48 @@
 @import "../../assets/CSS/variable.scss";
 
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@include keyframes(test) {
+  0% { 
+    background: #00CDEA;
+    background: -moz-linear-gradient(left, #00CDEA 0%, $white 30%, #13AD7D 50%, #C5BC41 100%);
+    background: -webkit-linear-gradient(left, #00CDEA 0%, $white 30%, #13AD7D 50%, #C5BC41 100%);
+    background: linear-gradient(to right, #00CDEA 0%, $white 30%, #13AD7D 50%, #C5BC41 100%);
+   }
+  100% { 
+    background: #C5BC41;
+    background: -moz-linear-gradient(left, #C5BC41 0%, #00CDEA 50%,  $white 80%, #13AD7D 100%);
+    background: -webkit-linear-gradient(left, #C5BC41 0%, #00CDEA 50%,  $white 80%, #13AD7D 100%);
+    background: linear-gradient(to right, #C5BC41 0%, #00CDEA 50%,   $white 80%, #13AD7D 100%);
+
+   }
+}
+
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
 .container{
   max-width: 1200px;
   display: block;
@@ -16,7 +59,14 @@
   .btn-L10p{ margin-left: 10px; }
 form{
    width: 100%;
- 
+    .btn{ 
+      &:hover{
+        color: $white;
+        @include animation('test 1s 1');
+        @include bg(#C5BC41);
+      }
+    
+    }
   .form-group-wrapper{ 
     display: flex;
     justify-content: center;
