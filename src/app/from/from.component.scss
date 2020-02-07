@@ -20,16 +20,16 @@
 
 @include keyframes(test) {
   0% { 
-    background: #00CDEA;
-    background: -moz-linear-gradient(left, #00CDEA 0%, $white 30%, #13AD7D 50%, #C5BC41 100%);
-    background: -webkit-linear-gradient(left, #00CDEA 0%, $white 30%, #13AD7D 50%, #C5BC41 100%);
-    background: linear-gradient(to right, #00CDEA 0%, $white 30%, #13AD7D 50%, #C5BC41 100%);
+    background: rgba(50, 49, 38,1);
+    background: -moz-linear-gradient(left, rgba(50, 49, 38,1) 0%, rgba(255, 255, 255, 0.8) 20%, rgba(99,96,54,1) 50%, rgba(163, 157, 70, 1) 100%);
+    background: -webkit-linear-gradient(left, rgba(50, 49, 38,1) 0%, rgba(255, 255, 255, 0.8) 20%, rgba(99,96,54,1) 50%, rgba(163, 157, 70, 1) 100%);
+    background: linear-gradient(to right, rgba(50, 49, 38,1) 0%, rgba(255, 255, 255, 0.8) 20%, rgba(99,96,54,1) 50%, rgba(163, 157, 70, 1) 100%);
    }
   100% { 
-    background: #C5BC41;
-    background: -moz-linear-gradient(left, #C5BC41 0%, #00CDEA 50%,  $white 80%, #13AD7D 100%);
-    background: -webkit-linear-gradient(left, #C5BC41 0%, #00CDEA 50%,  $white 80%, #13AD7D 100%);
-    background: linear-gradient(to right, #C5BC41 0%, #00CDEA 50%,   $white 80%, #13AD7D 100%);
+    background: rgba(50, 49, 38,1);
+    background: -moz-linear-gradient(left, rgba(163, 157, 70, 1) 0%, rgba(50, 49, 38,1) 50%,  rgba(255, 255, 255, 0.5) 80%, rgba(99,96,54,1) 100%);
+    background: -webkit-linear-gradient(left, rgba(163, 157, 70, 1) 0%, rgba(50, 49, 38,1) 50%,  rgba(255, 255, 255, 0.5) 80%,rgba(99,96,54,1) 100%);
+    background: linear-gradient(to right, rgba(163, 157, 70, 1) 0%, rgba(50, 49, 38,1) 50%,   rgba(255, 255, 255, 0.5) 80%,rgba(99,96,54,1) 100%);
 
    }
 }
@@ -63,7 +63,7 @@ form{
       &:hover{
         color: $white;
         @include animation('test 1s 1');
-        @include bg(#C5BC41);
+        @include bg(rgba(50, 49, 38,1));
       }
     
     }
