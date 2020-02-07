@@ -1,0 +1,11 @@
+$white: rgba(255, 255, 255,1) !default;
+$blue: rgba(0, 205, 234, 1) !default;
+$red: rgba(255, 74, 0, 1) !default;
+
+@mixin bg($bgc, $img:null) {
+  @if $img != null {
+    background: $bgc url($img) 0 0 no-repeat;
+  } @else{
+    background-color: $bgc;
+  }
+}

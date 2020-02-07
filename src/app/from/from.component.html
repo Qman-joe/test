@@ -1,0 +1,82 @@
+<div class="container">
+  <form [formGroup]="testForm" #formDir="ngForm">
+
+    <div [hidden]="formDir.submitted">
+
+      <div class="cross-validation" [class.cross-validation-error]="testForm.errors?.identityRevealed && (testForm.touched || testForm.dirty)">
+        <div class="form-group-wrapper">
+          <div class="form-group">
+            <label for="Lname">Last Name:</label>
+            <input id="Lname" class="form-control" formControlName="Lname" required >
+
+            <div *ngIf="Lname.invalid && (Lname.dirty || Lname.touched)" class="alert alert-danger">
+              <div *ngIf="Lname.errors.required"> Last Name is required. </div>
+              <div *ngIf="Lname.errors.minlength"> Last Name must be at least 4 characters long. </div>
+              <div *ngIf="Lname.errors.forbiddenName"> Last Name cannot be Bob. </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="Fname">First Name:</label>
+            <input id="Fname" class="form-control" formControlName="Fname" required >
+
+            <div *ngIf="Fname.invalid && (Fname.dirty || Fname.touched)" class="alert alert-danger">
+              <div *ngIf="Fname.errors.required"> First Name is required. </div>
+              <div *ngIf="Fname.errors.minlength"> First Name must be at least 4 characters long. </div>
+              <div *ngIf="Fname.errors.forbiddenName"> First Name cannot be Bob. </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="textInput">Text Input:</label>
+          <input id="textInput" class="form-control" formControlName="textInput"  >
+
+          <div *ngIf="textInput.pending">Validating...</div>
+          <div *ngIf="textInput.invalid" class="alert alert-danger alter-ego-errors">
+            <div *ngIf="textInput.errors?.uniqueAlterEgo">
+              Test you've inserted is already taken.
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="testForm.errors?.identityRevealed && (testForm.touched || testForm.dirty)" class="cross-validation-error-message alert alert-danger">
+            Name cannot match alter ego.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="select">Options:</label>
+        <select id="select" class="form-control" formControlName="select" required >
+          <option *ngFor="let p of selects" [value]="p">{{p}}</option>
+        </select>
+
+        <div *ngIf="select.invalid && select.touched" class="alert alert-danger">
+          <div *ngIf="select.errors.required">Power is required.</div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-default" >Submit</button>
+      <!--// 
+      <button type="submit" class="btn btn-default" [disabled]="testForm.invalid">Submit</button> 
+      //-->
+      <button type="button" class="btn btn-default btn-L10p" (click)="formDir.resetForm({})">Reset</button>
+    </div>
+  </form>
+
+  <div class="submitted-message" *ngIf="formDir.submitted">
+    <p>
+      You've submitted as following: <br/>
+      {{ testForm.value.Lname }} {{ testForm.value.Fname }}, <br/>
+      Text Input of ({{ testForm.value.textInput }}) and <br/>
+      The option selected as ({{ testForm.value.select }})<br/>
+      {{testForm.value.testCheckbox }}
+    </p>
+    <button (click)="formDir.resetForm({})">Add New Input</button>
+  </div>
+</div>
+
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
